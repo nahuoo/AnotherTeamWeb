@@ -4,4 +4,4 @@ export const MainWrapper = styled.div`
  width: 100%;
  height: 100vh;
  margin: 0;
- background: #000000;`
+ background: red;`
