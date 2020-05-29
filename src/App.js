@@ -4,6 +4,8 @@ import { MainWrapper } from './styled-components/styled-3d';
 import sol from './components/3d/sol'
 import mountains from './components/3d/mountains'
 import { light, hemi } from './components/3d/lights'
+import space from './img/space.jpg'
+import ant from './img/ant.jpeg'
 const OrbitControls = require('three-orbit-controls')(THREE);
 
 
@@ -16,7 +18,8 @@ function App() {
     //Crear escena
 
     let scene = new THREE.Scene()
-    scene.background = new THREE.Color(0x000000, 0)
+    scene.background = new THREE.Color(0x000000)
+    scene.fog = new THREE.FogExp2(0xf43a90, 0.001)
 
     //Renderer
 
@@ -40,20 +43,58 @@ function App() {
     camera.position.z = 500;
     controls.update();
 
+    let starGeo = new THREE.Geometry();
+    for(let i=0;i<6000;i++) {
+    let star = new THREE.Vector3(
+    Math.random() * 600 ,
+    Math.random() * 600 ,
+    Math.random() * 600 
+      );
+    star.velocity = 0;
+    star.acceleration = 0.02;
+    starGeo.vertices.push(star);
+    }
+    let sprite = new THREE.TextureLoader().load( ant );
+    let starMaterial = new THREE.PointsMaterial({
+      color: 0xaaaaaa,
+      size: 0.7,
+      map: sprite
+    });
+    let stars = new THREE.Points(starGeo,starMaterial);
+    
+    scene.add(stars);
+
     // Sol
     scene.add(sol)
     // Plano
     scene.add(mountains)
     // Piso cuadriculado
-    const grid = new THREE.GridHelper( 1000, 40, 0xf43a90, 0xf43a90)
-    scene.add(grid)
+/*     const grid = new THREE.GridHelper( 1000, 40, 0xf43a90, 0xf43a90)
+    scene.add(grid) */
+
+
+/*     let texture = new THREE.TextureLoader().load(ant);
+                texture.minFilter = THREE.NearestFilter;
+                texture.magFilter = THREE.NearestFilter;
+                texture.anisotropy = 1;
+                texture.generateMipmaps = false; */
+
 
     const animate = () => {
       requestAnimationFrame(animate)
-      sol.rotateY(0.01)
+      starGeo.vertices.forEach(p => {
+        p.velocity += p.acceleration
+        p.y -= p.velocity;
+        
+        if (p.y < -200) {
+          p.y = 200;
+          p.velocity = 0;
+        }
+      });
+      starGeo.verticesNeedUpdate = true; 
       renderer.render(scene, camera)
     }
-    
+
     animate()
 
   })
