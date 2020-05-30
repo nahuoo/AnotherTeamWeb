@@ -48,13 +48,13 @@ function App() {
     // Sol
     //scene.add(sol)
     scene.add(sol2)
-    sol2.position.z -= 500
-  
+    sol2.position.z -= 300
+    sol2.position.y += 100
     // Plano
     scene.add(mountains)
     // Piso cuadriculado
     
-    const grid = new THREE.GridHelper( 1000, 40, 0xf43a90, 0xf43a90)
+    const grid = new THREE.GridHelper( 1500, 40, 0xf43a90, 0xf43a90)
     scene.add(grid)
     grid.position.y += 200
     grid.position.z -= 200

@@ -4,7 +4,7 @@ import { ThemeConsumer } from 'styled-components'
 import texturamont from '../../img/solardo.jpg' //textura de la montaña
 
 
-const planeGeo = new THREE.PlaneGeometry(1000, 300, 32, 12) // creamos la figura en forma de cuadrilla
+const planeGeo = new THREE.PlaneGeometry(1500, 300, 32, 12) // creamos la figura en forma de cuadrilla
 planeGeo.rotateX(- Math.PI / 2)              // rotamos la cuadrilla para que este acostada
 let vertices = planeGeo.vertices          // extraemos los vertices de la cuadrilla
 for( let i=0; i < vertices.length; i++){    // algoritmo para hacer randoms las montañas con los vertices

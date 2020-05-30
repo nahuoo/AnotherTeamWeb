@@ -8,7 +8,7 @@ texture.generateMipmaps = false;
             texture.wrapS = THREE.RepeatWrapping;
             texture.wrapT = THREE.RepeatWrapping;
             texture.repeat.set( 50, 50 );
-var geometry = new THREE.PlaneGeometry( 1000, 1000, 32 );
+var geometry = new THREE.PlaneGeometry( 1500, 1500, 32 );
 geometry.rotateX(- Math.PI / 2)
 var material = new THREE.MeshBasicMaterial( {color: 0xffffff, map: texture, transparent: true} );
 var grilla = new THREE.Mesh( geometry, material );
