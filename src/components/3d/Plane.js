@@ -15,9 +15,9 @@ const Plane = () => {
 
     useFrame(() => {
 
-        camera.position.z = 3 - Math.cos( Math.sin(clock.elapsedTime) / 5 ) ;
+/*         camera.position.z = 3 - Math.cos( Math.sin(clock.elapsedTime) / 5 ) ;
         camera.position.x = 0 + -Math.sin( Math.cos(clock.elapsedTime) / 5 ) *1.5;
-        camera.position.y = 1 + Math.cos( Math.sin(clock.elapsedTime) ) / 5 ;
+        camera.position.y = 1 + Math.cos( Math.sin(clock.elapsedTime) ) / 5 ; */
                 
         if (toggle){
             if(ref.current.material.color.r > 0.800764705){
