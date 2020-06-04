@@ -41,3 +41,44 @@
     }
     animate()
   }) */
+import React, {useEffect, useState, useRef} from 'react'
+import * as THREE from 'three'
+import ant from '../img/antt.png'
+import {useFrame, useLoader, useThree} from 'react-three-fiber'
+
+
+  const Box = (props) => {
+
+    const [ texture ] = useLoader(THREE.TextureLoader, [ant])
+    const { camera, scene } = useThree()
+    const [ virgo, setVirgo ] = useState(0)
+  
+    const mesh = useRef()
+  
+    useFrame(() => {
+     /*  mesh.current.rotation.x = mesh.current.rotation.y += 0.05
+      camera.position.x += virgo
+      if (camera.position.x > 5){
+        camera.position.x = 0
+      } */
+    })
+    useEffect(() => {
+      console.log(camera)
+/*       camera.position.z = 5 */
+    })
+  
+
+  
+    return (
+      <mesh
+        {...props}
+        ref={mesh}
+        scale={[1, 1, 1]}
+        position={[0, 3, -5]}
+        >
+          <boxBufferGeometry attach="geometry" args={[4, 4, 1]} />
+          <meshLambertMaterial attach="material" map={texture} transparent />
+        </mesh>
+    )
+  }
+export default Box
