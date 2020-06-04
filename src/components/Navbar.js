@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import  { StyledNav, Line, Logo, Burger, ListUL, ListLi, MenuLinks, SubMenu, SubMenuItem } from './StyledNavbar'
-import LogoIMG from '../img/antt.png'
+import LogoIMG from '../img/ant.png'
 import {Link} from 'react-router-dom'
 
 
@@ -55,8 +55,6 @@ const Navbar = (props) => {
                 </SubMenu>
                 <div><MenuLinks Glitch={'PORTFOLIO'} onClick={handleSubMenu}>PORTFOLIO</MenuLinks></div>
             </ListLi>
-            <ListLi subMenu={subMenu}><MenuLinks Glitch={'¿QUIENES SOMOS?'} subMenu={subMenu} onClick={handleMenu}>¿QUIENES SOMOS?</MenuLinks></ListLi>
-            <ListLi subMenu={subMenu}><MenuLinks Glitch={'CONTACTO'} subMenu={subMenu} onClick={handleMenu}>CONTACTO</MenuLinks></ListLi>
         </ListUL>
     </StyledNav>
     )
