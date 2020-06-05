@@ -11,7 +11,7 @@ const Sun = () => {
 
     return (
         <mesh
-        position={[0, 6, -36]}
+        position={[0, 10, -36]}
         >
           <planeGeometry attach="geometry" args={[55, 55, 10, 10]} />
           <meshLambertMaterial attach="material" map={sol} transparent fog={false}/>

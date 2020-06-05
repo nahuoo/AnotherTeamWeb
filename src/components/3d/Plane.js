@@ -15,31 +15,33 @@ const Plane = () => {
 
     useFrame(() => {
 
-/*         camera.position.z = 3 - Math.cos( Math.sin(clock.elapsedTime) / 5 ) ;
+        camera.position.z = 3 - Math.cos( Math.sin(clock.elapsedTime) / 5 ) ;
         camera.position.x = 0 + -Math.sin( Math.cos(clock.elapsedTime) / 5 ) *1.5;
-        camera.position.y = 1 + Math.cos( Math.sin(clock.elapsedTime) ) / 5 ; */
+        camera.position.y = 1 + Math.cos( Math.sin(clock.elapsedTime) ) / 5 ;
                 
-        if (toggle){
-            if(ref.current.material.color.r > 0.800764705){
-                ref.current.material.color.r = 0.8117647058823529  
-                ref.current.material.color.g = 0.20372156862745098  
-                ref.current.material.color.b = 0.4627450980392157
+        if (!toggle){
+            if(ref.current.material.color.r < 0.015686274){
+                ref.current.material.color.r = 0.01568627450980392  
+                ref.current.material.color.g = 0.027450980392156862  
+                ref.current.material.color.b = 0.5882352941176471
+                
             }
-            ref.current.material.color.r += 0.00270588  
-            ref.current.material.color.g -= 0.002013073  
-            ref.current.material.color.b -= 0.00118954 
+            ref.current.material.color.r -= 0.0038344226579521  
+            ref.current.material.color.g += 0.000152505446623093  
+            ref.current.material.color.b += 0.0010893246187364 
              
         }
-        else if(!toggle){
+        else if(toggle){
+            
+            if(ref.current.material.color.r > 0.70588235294){
+                ref.current.material.color.r = 0.7058823529411765 
+                ref.current.material.color.g = 0  
+                ref.current.material.color.b = 0.39215686274509803
                 
-            if(ref.current.material.color.r < 0.0001){
-                ref.current.material.color.r = 0 
-                ref.current.material.color.g = 0.807843137254902  
-                ref.current.material.color.b = 0.8196078431372549
             }
-            ref.current.material.color.r -= 0.00270588  
-            ref.current.material.color.g += 0.002013073  
-            ref.current.material.color.b += 0.00118954 
+            ref.current.material.color.r += 0.0038344226579521   
+            ref.current.material.color.g -= 0.000152505446623093  
+            ref.current.material.color.b -= 0.0010893246187364  
         }      
     })
 
@@ -53,7 +55,7 @@ const Plane = () => {
         textures.repeat.set( 25, 25 )
         ref.current.material.map.needsUpdate = true
         scene.background = backtexture
-        scene.fog = new THREE.FogExp2('rgb(207, 52, 118)', 0.05)    
+        scene.fog = new THREE.FogExp2('rgb(207, 52, 118)', 0.01)    
     })
 
     useEffect(() => {
@@ -76,7 +78,7 @@ const Plane = () => {
         rotation={new THREE.Euler(Math.PI / -2, 0, 0)}
         >
           <planeGeometry attach="geometry" args={[45, 45, 10, 10]} />
-          <meshLambertMaterial attach="material" color={'rgb(0,206,209)'} map={textures}/>
+          <meshLambertMaterial attach="material" color={'rgb(4,7,150)'} map={textures}/>
         </mesh>
     )
 }

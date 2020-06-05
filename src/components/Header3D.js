@@ -6,6 +6,8 @@ import Peeks from './3d/Peeks'
 import Logo from './3d/Logo';
 import Sun from './3d/Sun';
 import CameraController from './OrbitControls'
+import Peeks2 from './3d/Peeks2';
+import { Effect } from './3d/Bloom'
 
 function Header3D() {
   
@@ -18,8 +20,10 @@ function Header3D() {
         <Suspense fallback={null}>
           <Logo />
           <Sun />
-          <Peeks />
+          <Peeks smooth={9}/>
+          <Peeks2 />
           <Plane />
+          <Effect />
         </Suspense>
       </Canvas>
     </MainWrapper>
