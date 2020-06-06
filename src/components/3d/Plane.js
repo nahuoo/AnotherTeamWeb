@@ -2,7 +2,8 @@ import React, {useState, useEffect, useRef} from 'react';
 import * as THREE from "three";
 import { useFrame, useLoader, useThree } from 'react-three-fiber';
 import SynthSquare from '../../img/SynthSquare.png'
-import Back from '../../img/stars.jpg'
+import Back from '../../img/wall.jpg'
+
 
 const Plane = () => {
 
@@ -15,9 +16,9 @@ const Plane = () => {
 
     useFrame(() => {
 
-        camera.position.z = 3 - Math.cos( Math.sin(clock.elapsedTime) / 5 ) ;
+        /* camera.position.z = 3 - Math.cos( Math.sin(clock.elapsedTime) / 5 ) ;
         camera.position.x = 0 + -Math.sin( Math.cos(clock.elapsedTime) / 5 ) *1.5;
-        camera.position.y = 1 + Math.cos( Math.sin(clock.elapsedTime) ) / 5 ;
+        camera.position.y = 1 + Math.cos( Math.sin(clock.elapsedTime) ) / 5 ; */
                 
         if (!toggle){
             if(ref.current.material.color.r < 0.015686274){
@@ -46,7 +47,7 @@ const Plane = () => {
     })
 
     useMountEffect(() => {
-
+        
         camera.position.z = 3
         camera.position.x = 0
         camera.position.y = 2
@@ -77,7 +78,7 @@ const Plane = () => {
         position={[0, 0, -14]}
         rotation={new THREE.Euler(Math.PI / -2, 0, 0)}
         >
-          <planeGeometry attach="geometry" args={[45, 45, 10, 10]} />
+          <planeGeometry attach="geometry" args={[55, 55, 10, 10]} />
           <meshLambertMaterial attach="material" color={'rgb(4,7,150)'} map={textures}/>
         </mesh>
     )

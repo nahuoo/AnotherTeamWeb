@@ -14,7 +14,7 @@ const Peeks = (props) => {
 
     useFrame(() => {
 
-        if (!toggle){
+        if (toggle){
             if(planeGeo.current.material.color.r < 0.015686274){
                 planeGeo.current.material.color.r = 0.01568627450980392  
                 planeGeo.current.material.color.g = 0.027450980392156862  
@@ -26,7 +26,7 @@ const Peeks = (props) => {
             planeGeo.current.material.color.b += 0.0010893246187364 
              
         }
-        else if(toggle){
+        else if(!toggle){
             
             if(planeGeo.current.material.color.r > 0.70588235294){
                 planeGeo.current.material.color.r = 0.7058823529411765 
@@ -54,37 +54,38 @@ const Peeks = (props) => {
             }   
         } */
         let perlin = new Perlin();
-        let peak = 25;
+        let peak = 20;
         let smoothing = props.smooth;
         let vertices = planeGeo.current.geometry.attributes.position.array;
         for (let i = 0; i <= vertices.length; i += 3) {
             if(vertices[i+1] > 0){  // estas atras del logo?
                 if(-8 > vertices[i] || vertices[i] > 8 ){  // estas fuera del medio?
-                    if (-20 > vertices[i] || vertices[i] > 20){
+                    if (-18 > vertices[i] || vertices[i] > 18){
                         vertices[i+2] = peak * perlin.noise(vertices[i]/smoothing, vertices[i+1]/smoothing)
                     }
                     else{
-                        vertices[i+2] = (peak - 7) * perlin.noise(vertices[i]/smoothing, vertices[i+1]/smoothing)
+                        vertices[i+2] = (peak - 2) * perlin.noise(vertices[i]/smoothing, vertices[i+1]/smoothing)
                     }
                 }
                 else {
-                    vertices[i+2] = (peak - 14) * perlin.noise(vertices[i]/smoothing, vertices[i+1]/smoothing)
+                    vertices[i+2] = (peak - 7) * perlin.noise(vertices[i]/smoothing, vertices[i+1]/smoothing)
                 }                   
             }
-            else if(-4 > vertices[i] || vertices[i] > 4 ){ // adelante del logo fuera de mid
+            /* else if(-4 > vertices[i] || vertices[i] > 4 ){ // adelante del logo fuera de mid
                 if(vertices[i+1] > -12){
                     if(vertices[i] < -13 || vertices[i] > 13){
                         vertices[i+2] = 9 * perlin.noise(vertices[i]/smoothing, vertices[i+1]/smoothing)
                     }
                     else{
-                        vertices[i+2] = 4 * perlin.noise(vertices[i]/smoothing, vertices[i+1]/smoothing)
+                        vertices[i+2] = 0 * perlin.noise(vertices[i]/smoothing, vertices[i+1]/smoothing)
 
                     }
                 }
                 else{
-                    vertices[i+2] = 4 * perlin.noise(vertices[i]/smoothing, vertices[i+1]/smoothing)    
+                    vertices[i+2] = 0 * perlin.noise(vertices[i]/smoothing, vertices[i+1]/smoothing)    
                 }
-               }
+               } */
+        
         }
 
         /* planeGeo.current.attributes.position.needsUpdate = true;
@@ -93,7 +94,7 @@ const Peeks = (props) => {
 
         text.wrapS = THREE.RepeatWrapping;
         text.wrapT = THREE.RepeatWrapping;
-        text.repeat.set( 200, 200 )
+        text.repeat.set( 100, 100 )
     })
 
     useEffect(() => {
@@ -115,7 +116,7 @@ const Peeks = (props) => {
         position={[0, -0.2, -14]}
         rotation={new THREE.Euler(Math.PI / -2, 0, 0)}
         >
-          <planeBufferGeometry attach="geometry" args={[55, 55, 100, 100]} />
+          <planeBufferGeometry attach="geometry" args={[55, 55, 250, 250]} />
           <meshLambertMaterial attach="material" color={'rgb(4,7,150)'} map={text}/>
         </mesh>
     )

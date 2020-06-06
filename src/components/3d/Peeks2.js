@@ -43,15 +43,41 @@ const Peeks2 = () => {
 
         let vertices = planeGeo.current.geometry.vertices          // extraemos los vertices de la cuadrilla
         for( let i=0; i < vertices.length; i++){    // algoritmo para hacer randoms las montañas con los vertices
+            /* if (6 < vertices[i].x || vertices[i].x < -6){ 
+                if(vertices[i].y < -4){
+                    if(vertices[i].y < -7){
+                        if(15 < vertices[i].x || vertices[i].x < -15){
+                            vertices[i].z = ( Math.random() > 0.3 ) ? Math.random() * 9 : 0 
+                        }
+                        else{
+                            vertices[i].z = ( Math.random() > 0.6 ) ? Math.random() * 3 : 0 
+                        }
+                    }
+                    else{
+                        vertices[i].z = ( Math.random() > 0.2 ) ? Math.random() * 4 : 0
+                    }
+                }
+            }else{
+                if(vertices[i].y > -5){
+                    vertices[i].z = ( Math.random() > 0.2 ) ? Math.random() * 2 : 0
+                }
+            } */
             if (4 < vertices[i].x || vertices[i].x < -4){ 
-                if(vertices[i].y < 4 && vertices[i].y > -5){
-                vertices[i].z = ( Math.random() > 0.1 ) ? Math.random() * 7 : 0 
+                if(vertices[i].y < 4 && vertices[i].y > -6){
+                vertices[i].z = ( Math.random() > 0.2 ) ? Math.random() * 7 : 0 
+                }
+                else{
+                    if(15 < vertices[i].x || vertices[i].x < -15){
+                        if(-6 > vertices[i].y){
+                            vertices[i].z = ( Math.random() > 0.4 ) ? Math.random() * 9 : 0 
+                        }
+                    }
                 }
             }
         }
         text.wrapS = THREE.RepeatWrapping;
         text.wrapT = THREE.RepeatWrapping;
-        text.repeat.set( 20, 20 )
+        text.repeat.set( 25, 25 )
     })
 
     useEffect(() => {
@@ -70,10 +96,10 @@ const Peeks2 = () => {
         <mesh
         
         ref={planeGeo}
-        position={[0, -0.02, -14]}
+        position={[0, -0.2, -14]}
         rotation={new THREE.Euler(Math.PI / -2, 0, 0)}
         >
-          <planeGeometry attach="geometry" args={[55, 55, 40, 25]} />
+          <planeGeometry attach="geometry" args={[55, 55, 25, 25]} />
           <meshLambertMaterial attach="material" color={'rgb(4,7,150)'} map={text}/>
         </mesh>
     )

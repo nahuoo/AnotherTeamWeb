@@ -11,9 +11,9 @@ import {useLoader} from 'react-three-fiber'
     return (
       <mesh
         {...props}
-        position={[0, 3, -5]}
+        position={[0, 2, -3]}
         >
-          <planeGeometry attach="geometry" args={[4, 4]} />
+          <planeGeometry attach="geometry" args={[3, 3]} />
           <meshLambertMaterial attach="material" map={texture} transparent />
         </mesh>
     )

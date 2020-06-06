@@ -16,7 +16,7 @@ function Header3D() {
       <Canvas>
         <CameraController />
         <ambientLight />
-        <pointLight position={[10, 10, 10]} />
+        <hemisphereLight />
         <Suspense fallback={null}>
           <Logo />
           <Sun />

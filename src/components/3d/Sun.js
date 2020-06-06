@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLoader } from 'react-three-fiber';
 import { TextureLoader } from 'three';
-import Solito from '../../img/retrosun.png'
+import Solito from '../../img/Sun.png'
 
 
 
@@ -11,10 +11,10 @@ const Sun = () => {
 
     return (
         <mesh
-        position={[0, 10, -36]}
+        position={[0, 15, -41.5]}
         >
-          <planeGeometry attach="geometry" args={[55, 55, 10, 10]} />
-          <meshLambertMaterial attach="material" map={sol} transparent fog={false}/>
+          <circleGeometry attach="geometry" args={[20, 50]} />
+          <meshBasicMaterial attach="material" map={sol} transparent fog={false}/>
         </mesh>
     )
 }
