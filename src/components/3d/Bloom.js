@@ -8,7 +8,7 @@ import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPa
 import { FXAAShader } from 'three/examples/jsm/shaders/FXAAShader'
 
 const materials = {}
-const darkMaterial = new THREE.MeshBasicMaterial({ color: 'black' })
+const darkMaterial = new THREE.MeshLambertMaterial({ color: 'black' })
 const darkenNonBloomed = (obj) =>
   obj.isMesh && !obj.userData.active && ((materials[obj.uuid] = obj.material), (obj.material = darkMaterial))
 const restoreMaterial = (obj) =>

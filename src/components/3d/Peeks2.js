@@ -41,27 +41,8 @@ const Peeks2 = () => {
 
     useMountEffect(() => {
 
-        let vertices = planeGeo.current.geometry.vertices          // extraemos los vertices de la cuadrilla
-        for( let i=0; i < vertices.length; i++){    // algoritmo para hacer randoms las montañas con los vertices
-            /* if (6 < vertices[i].x || vertices[i].x < -6){ 
-                if(vertices[i].y < -4){
-                    if(vertices[i].y < -7){
-                        if(15 < vertices[i].x || vertices[i].x < -15){
-                            vertices[i].z = ( Math.random() > 0.3 ) ? Math.random() * 9 : 0 
-                        }
-                        else{
-                            vertices[i].z = ( Math.random() > 0.6 ) ? Math.random() * 3 : 0 
-                        }
-                    }
-                    else{
-                        vertices[i].z = ( Math.random() > 0.2 ) ? Math.random() * 4 : 0
-                    }
-                }
-            }else{
-                if(vertices[i].y > -5){
-                    vertices[i].z = ( Math.random() > 0.2 ) ? Math.random() * 2 : 0
-                }
-            } */
+        let vertices = planeGeo.current.geometry.vertices    
+        for( let i=0; i < vertices.length; i++){    
             if (4 < vertices[i].x || vertices[i].x < -4){ 
                 if(vertices[i].y < 4 && vertices[i].y > -6){
                 vertices[i].z = ( Math.random() > 0.2 ) ? Math.random() * 7 : 0 
@@ -77,7 +58,7 @@ const Peeks2 = () => {
         }
         text.wrapS = THREE.RepeatWrapping;
         text.wrapT = THREE.RepeatWrapping;
-        text.repeat.set( 25, 25 )
+        text.repeat.set( 250, 250 )
     })
 
     useEffect(() => {

@@ -2,13 +2,13 @@ import React, {useState, useEffect, useRef} from 'react';
 import * as THREE from "three";
 import { useFrame, useLoader, useThree } from 'react-three-fiber';
 import SynthSquare from '../../img/SynthSquare.png'
-import Back from '../../img/wall.jpg'
+import Back from '../../img/wallstar.jpg'
 
 
 const Plane = () => {
 
     const ref = useRef()
-    const { camera, scene, clock } = useThree()
+    const { camera, scene, clock, gl } = useThree()
     const [ textures ] = useLoader(THREE.TextureLoader, [SynthSquare])
     const [ backtexture ] = useLoader(THREE.TextureLoader, [Back])
     const [ toggle, setToggle ] = useState(true)
@@ -16,9 +16,9 @@ const Plane = () => {
 
     useFrame(() => {
 
-        /* camera.position.z = 3 - Math.cos( Math.sin(clock.elapsedTime) / 5 ) ;
+        camera.position.z = 3 - Math.cos( Math.sin(clock.elapsedTime) / 5 ) ;
         camera.position.x = 0 + -Math.sin( Math.cos(clock.elapsedTime) / 5 ) *1.5;
-        camera.position.y = 1 + Math.cos( Math.sin(clock.elapsedTime) ) / 5 ; */
+        camera.position.y = 2 + Math.cos( Math.sin(clock.elapsedTime) ) / 5 ;
                 
         if (!toggle){
             if(ref.current.material.color.r < 0.015686274){
@@ -47,7 +47,8 @@ const Plane = () => {
     })
 
     useMountEffect(() => {
-        
+
+        backtexture.anisotropy = gl.capabilities.getMaxAnisotropy()
         camera.position.z = 3
         camera.position.x = 0
         camera.position.y = 2
@@ -56,7 +57,7 @@ const Plane = () => {
         textures.repeat.set( 25, 25 )
         ref.current.material.map.needsUpdate = true
         scene.background = backtexture
-        scene.fog = new THREE.FogExp2('rgb(207, 52, 118)', 0.01)    
+        scene.fog = new THREE.FogExp2(0xFFB468, 0.008)    
     })
 
     useEffect(() => {

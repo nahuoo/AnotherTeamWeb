@@ -42,17 +42,6 @@ const Peeks = (props) => {
 
     useMountEffect(() => {
 
-        /* let vertices = planeGeo.current.geometry.vertices          // extraemos los vertices de la cuadrilla
-        for( let i=0; i < vertices.length; i++){    // algoritmo para hacer randoms las montañas con los vertices
-            if (5.5 < vertices[i].x || vertices[i].x < -5.5){ 
-                vertices[i].z = ( Math.random() > 0.6 ) ? Math.random() * 9 : 0 
-            }
-            else {
-                if(vertices[i].y > 15){
-                    vertices[i].z = ( Math.random() > 0.6 ) ? Math.random() * 4 : 0
-                    }
-            }   
-        } */
         let perlin = new Perlin();
         let peak = 20;
         let smoothing = props.smooth;
@@ -71,26 +60,8 @@ const Peeks = (props) => {
                     vertices[i+2] = (peak - 7) * perlin.noise(vertices[i]/smoothing, vertices[i+1]/smoothing)
                 }                   
             }
-            /* else if(-4 > vertices[i] || vertices[i] > 4 ){ // adelante del logo fuera de mid
-                if(vertices[i+1] > -12){
-                    if(vertices[i] < -13 || vertices[i] > 13){
-                        vertices[i+2] = 9 * perlin.noise(vertices[i]/smoothing, vertices[i+1]/smoothing)
-                    }
-                    else{
-                        vertices[i+2] = 0 * perlin.noise(vertices[i]/smoothing, vertices[i+1]/smoothing)
-
-                    }
-                }
-                else{
-                    vertices[i+2] = 0 * perlin.noise(vertices[i]/smoothing, vertices[i+1]/smoothing)    
-                }
-               } */
         
         }
-
-        /* planeGeo.current.attributes.position.needsUpdate = true;
-        planeGeo.current.computeVertexNormals(); */
-        console.log(planeGeo.current.material.color)
 
         text.wrapS = THREE.RepeatWrapping;
         text.wrapT = THREE.RepeatWrapping;
