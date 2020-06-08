@@ -16,7 +16,7 @@ const Plane = () => {
 
     useFrame(() => {
 
-        camera.position.z = 3 - Math.cos( Math.sin(clock.elapsedTime) / 5 ) ;
+        camera.position.z = 4 - Math.cos( Math.sin(clock.elapsedTime) / 5 ) ;
         camera.position.x = 0 + -Math.sin( Math.cos(clock.elapsedTime) / 5 ) *1.5;
         camera.position.y = 2 + Math.cos( Math.sin(clock.elapsedTime) ) / 5 ;
                 
