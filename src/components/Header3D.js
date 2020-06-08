@@ -14,7 +14,7 @@ function Header3D() {
   return (
     <MainWrapper>
       <Canvas>
-        <CameraController />
+        {/* <CameraController /> */}
         <ambientLight />
         <hemisphereLight />
         <Suspense fallback={null}>
