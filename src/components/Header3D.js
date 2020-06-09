@@ -8,13 +8,14 @@ import Sun from './3d/Sun';
 import CameraController from './OrbitControls'
 import Peeks2 from './3d/Peeks2';
 import { Effect } from './3d/Bloom'
+import ForwardCanvas from './ContextCanvas'
 
 function Header3D() {
   
   return (
     <MainWrapper>
-      <Canvas>
-        {/* <CameraController /> */}
+      <ForwardCanvas>
+        <CameraController />
         <ambientLight />
         <hemisphereLight />
         <Suspense fallback={null}>
@@ -25,7 +26,7 @@ function Header3D() {
           <Plane />
           <Effect />
         </Suspense>
-      </Canvas>
+      </ForwardCanvas>
     </MainWrapper>
   );
 }
