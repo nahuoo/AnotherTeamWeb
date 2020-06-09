@@ -65,9 +65,10 @@ const Peeks = (props) => {
 
         text.wrapS = THREE.RepeatWrapping;
         text.wrapT = THREE.RepeatWrapping;
-        text.repeat.set( 100, 100 )
+        text.repeat.set( 250, 250 )
+        text.anisotropy = 4
     })
-
+    
     useEffect(() => {
 
         

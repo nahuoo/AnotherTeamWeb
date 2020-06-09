@@ -40,9 +40,9 @@ export const StyledNav = styled.nav`
   justify-content: flex-start; 
   align-items: center;
   z-index: 1;
-  background: #000000B3;
+  background: transparent;
   font-size: 110%;
-  color: white;
+  font-family: 'Quantum';
   top:0px;
   z-index: 100;
   @media (min-width: 630px) {
@@ -155,7 +155,6 @@ export const ListUL = styled.ul`
     flex-direction: row;
     justify-content: space-evenly;
     background: none;
-    margin-right: 3vw;
   }
   `
 
@@ -187,7 +186,7 @@ export const ListLi = styled.li`
   padding-top: 0;
   margin-top: 0;
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   color: white;
   letter-spacing: 1pt;
   transition: all 0.2s ease 0s;
