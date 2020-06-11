@@ -42,10 +42,10 @@ const Plane = () => {
 
     useMountEffect(() => {
 
-        textures.anisotropy = 4
+        textures.anisotropy = 2
         textures.wrapS = THREE.RepeatWrapping;
         textures.wrapT = THREE.RepeatWrapping;
-        textures.repeat.set( 25, 25 )
+        textures.repeat.set( 34, 34 )
         ref.current.material.map.needsUpdate = true
     })
 
@@ -69,7 +69,7 @@ const Plane = () => {
         position={[0, 0, -14]}
         rotation={new THREE.Euler(Math.PI / -2, 0, 0)}
         >
-          <planeGeometry attach="geometry" args={[55, 55, 10, 10]} />
+          <planeGeometry attach="geometry" args={[75, 75, 10, 10]} />
           <meshLambertMaterial attach="material" color={'rgb(4,7,150)'} map={textures}/>
         </mesh>
     )

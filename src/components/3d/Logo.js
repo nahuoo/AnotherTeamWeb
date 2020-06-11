@@ -10,10 +10,10 @@ import {useLoader} from 'react-three-fiber'
 
     return (
       <mesh
-        position={[0, 2, -3]}
+        position={[0, 1.7, -3]}
         >
           <planeGeometry attach="geometry" args={[3, 3.555]} />
-          <meshBasicMaterial attach="material" map={texture} transparent />
+          <meshBasicMaterial attach="material" map={texture} transparent fog={false}/>
         </mesh>
     )
   }

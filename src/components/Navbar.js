@@ -1,22 +1,15 @@
 import React, {useContext} from 'react'
-import  { StyledNav, Logo, ListUL, ListLi, MenuLinks } from './StyledNavbar'
-import LogoIMG from '../img/ant.png'
-import {Link} from 'react-router-dom'
+import  { StyledNav, ListUL, ListLi, MenuLinks } from './StyledNavbar'
 import {AngleContext} from './AngleContext'
 
 
-const Navbar = (props) => {
+const Navbar = () => {
 
     const { handleAngulo } = useContext(AngleContext)
 
 
     return (
     <StyledNav> 
-        <Link to="/">
-        <Logo>
-            <img src={LogoIMG} alt='Logo'/>
-        </Logo>
-        </Link>
         <ListUL>
             <ListLi>
             <div><MenuLinks Glitch={'Izquierda'} onClick={handleAngulo}>Izquierda</MenuLinks></div>

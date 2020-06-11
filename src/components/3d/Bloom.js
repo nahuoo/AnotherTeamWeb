@@ -6,6 +6,7 @@ import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass'
 import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass'
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass'
 import { FXAAShader } from 'three/examples/jsm/shaders/FXAAShader'
+import { GlitchPass } from 'three/examples/jsm/postprocessing/GlitchPass.js';
 
 const materials = {}
 const darkMaterial = new THREE.MeshLambertMaterial({ color: 'black' })
@@ -43,6 +44,8 @@ export function Effect() {
     fxaa.material.uniforms['resolution'].value.x = 1 / size.width
     fxaa.material.uniforms['resolution'].value.y = 1 / size.height
     finalComposer.addPass(fxaa)
+    const glitch = new GlitchPass(1)
+    finalComposer.addPass(glitch)
 
     return [comp, finalComposer]
   }, [gl, scene, camera, size.width, size.height])

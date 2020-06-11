@@ -13,7 +13,7 @@ const Sun = () => {
         <mesh
         position={[0, 15, -41.5]}
         >
-          <circleGeometry attach="geometry" args={[20, 50]} />
+          <circleGeometry attach="geometry" args={[15, 50]} />
           <meshBasicMaterial attach="material" map={sol} transparent fog={false}/>
         </mesh>
     )

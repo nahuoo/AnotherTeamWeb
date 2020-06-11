@@ -43,7 +43,7 @@ const Peeks2 = () => {
 
         let vertices = planeGeo.current.geometry.vertices    
         for( let i=0; i < vertices.length; i++){    
-            if (4 < vertices[i].x || vertices[i].x < -4){ 
+            if (3 < vertices[i].x || vertices[i].x < -3){ 
                 if(vertices[i].y < 4 && vertices[i].y > -6){
                 vertices[i].z = ( Math.random() > 0.2 ) ? Math.random() * 7 : 0 
                 }
@@ -56,9 +56,6 @@ const Peeks2 = () => {
                 }
             }
         }
-        text.wrapS = THREE.RepeatWrapping;
-        text.wrapT = THREE.RepeatWrapping;
-        text.repeat.set( 250, 250 )
     })
 
     useEffect(() => {
@@ -80,7 +77,7 @@ const Peeks2 = () => {
         position={[0, -0.2, -14]}
         rotation={new THREE.Euler(Math.PI / -2, 0, 0)}
         >
-          <planeGeometry attach="geometry" args={[55, 55, 25, 25]} />
+          <planeGeometry attach="geometry" args={[75, 75, 34, 34]} />
           <meshLambertMaterial attach="material" color={'rgb(4,7,150)'} map={text}/>
         </mesh>
     )

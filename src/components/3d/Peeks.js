@@ -62,11 +62,6 @@ const Peeks = (props) => {
             }
         
         }
-
-        text.wrapS = THREE.RepeatWrapping;
-        text.wrapT = THREE.RepeatWrapping;
-        text.repeat.set( 250, 250 )
-        text.anisotropy = 4
     })
     
     useEffect(() => {
@@ -88,7 +83,7 @@ const Peeks = (props) => {
         position={[0, -0.2, -14]}
         rotation={new THREE.Euler(Math.PI / -2, 0, 0)}
         >
-          <planeBufferGeometry attach="geometry" args={[55, 55, 250, 250]} />
+          <planeBufferGeometry attach="geometry" args={[75, 75, 170, 170]} />
           <meshLambertMaterial attach="material" color={'rgb(4,7,150)'} map={text}/>
         </mesh>
     )
