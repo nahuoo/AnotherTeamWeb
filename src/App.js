@@ -2,7 +2,7 @@ import React from 'react'
 import Header3D from './components/Header3D'
 import Navbar from './components/Navbar'
 import GlobalStyle from './assets/styled-components/GlobalStyles'
-import {AngleContextProvider} from './components/AngleContext'
+import {AngleContextProvider} from './components/Contexts/AngleContext'
 
 const App = () => {
     return (

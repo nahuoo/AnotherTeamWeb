@@ -58,44 +58,6 @@ export const StyledNav = styled.nav`
   }
   `
 /* /////////////////////////////////////////////// */
-/*                   BACKGROUND                    */
-/* /////////////////////////////////////////////// */
-export const Line = styled.div`
-  position: absolute;
-  height:26%;
-  width: 100%;
-  z-index: -1;
-  background: ${(props) => props.color || 'black'};
-  top: ${(props) => props.top || '0'};
-
-  @media (min-width: 1500px){
-    height: 18%;
-    top: ${(props => props.top === '20%' ? '30%' : '51%')}
-  }
-`
-/* /////////////////////////////////////////////// */
-/*                    LOGO                         */
-/* /////////////////////////////////////////////// */
-export const Logo = styled.div`
-  position: absolute;
-  height: 120%; 
-  bottom: 15%;
-  left: 30%;
-  & img {
-    max-width: 150%;
-    max-height: 150%;
-  }
-  @media (min-width: 630px) {
-    height: 12vw; 
-    left: 37%;
-  }
-  @media (min-width: 1000px) {
-    height: 4vw;
-    left: 3%;
-    top: 0;
-  }
-  `
-/* /////////////////////////////////////////////// */
 /*                    BURGER                       */
 /* /////////////////////////////////////////////// */
 export const Burger = styled.div`
@@ -236,52 +198,6 @@ export const ListLi = styled.li`
   }
   @media (min-width: 1550px) {
     font-size: 20px;
-  }
-  `
-/* /////////////////////////////////////////////// */
-/*                    SUBMENU                      */
-/* /////////////////////////////////////////////// */
-export const SubMenuItem = styled.li`
-  text-align: center;
-  padding: 1vw 0;
-  font-size: 0.9rem;
-  user-select:none;
-  text-decoration: none;
-  `
-export const SubMenu = styled.ul`
-  display: ${(props) => props.subMenu ? 'flex' : 'none'};
-  flex-direction: column;
-  position: relative;
-  left: 0;
-  top: 0;
-  transition: all 0.1s ease-in;
-  & > ${SubMenuItem} > a > ${MenuLinks}::before{
-    animation: ${props => props.subMenu ? css`${glitch} .4s cubic-bezier(.25, .46, .45, .94) both 1` : ''};
-  }
-  & > ${SubMenuItem} > a > ${MenuLinks}::after{
-    animation: ${props => props.subMenu ? css`${glitch} .4s cubic-bezier(.25, .46, .45, .94) reverse both 1` : ''};
-  }
-  @media (min-width: 630px) {
-    padding-bottom: 0;
-  }
-  @media (min-width: 1000px) {
-    position: absolute;
-    width: 210px;
-    top: 100%;
-    left: -25%;
-    /* box-shadow: inset 14px -143px 100px -188px rgba(252,30,223,1); */
-    background: #000000B3;
-    transition: all 0.5s ease-in;
-    & > ${SubMenuItem} > a > ${MenuLinks}{
-      position: initial;
-      font-size: 0.9rem;
-    }
-    & > ${SubMenuItem} > a > ${MenuLinks}::after{
-      z-index:initial;
-    }
-    & > ${SubMenuItem} > a > ${MenuLinks}::before{
-      z-index:initial;
-    }
   }
   `
 

@@ -1,6 +1,6 @@
 import React, {useContext} from 'react'
-import  { StyledNav, ListUL, ListLi, MenuLinks } from './StyledNavbar'
-import {AngleContext} from './AngleContext'
+import  { StyledNav, ListUL, ListLi, MenuLinks } from '../assets/styled-components/StyledNavbar'
+import {AngleContext} from './Contexts/AngleContext'
 
 
 const Navbar = () => {

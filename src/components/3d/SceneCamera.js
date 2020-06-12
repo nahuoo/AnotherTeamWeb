@@ -2,7 +2,7 @@ import { useEffect, useContext} from 'react';
 import * as THREE from "three";
 import { useFrame, useLoader, useThree } from 'react-three-fiber';
 import Back from '../../img/wallstar.jpg'
-import {AngleContext} from '../AngleContext'
+import {AngleContext} from '../Contexts/AngleContext'
 
 const SceneCamera = () => {
 
@@ -18,7 +18,7 @@ const SceneCamera = () => {
         camera.position.y = 2 + Math.cos( Math.sin(clock.elapsedTime) ) / 5 ;
 
         switch (angulo) {
-            case 'Izquierda':
+            case 'Portfolio':
                 if(camera.rotation.y < 1.1){
                     if(camera.rotation.y >= 0 && camera.rotation.y < 1.1){
                         camera.rotation.y += 0.018333333
@@ -28,7 +28,7 @@ const SceneCamera = () => {
                     }
                 }
             break;
-            case 'Derecha':
+            case 'Contacto':
                 if (camera.rotation.y > -1.1){
                     if(camera.rotation.y <= 0 && camera.rotation.y > -1.1){
                         camera.rotation.y -= 0.018333333
