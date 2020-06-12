@@ -8,7 +8,6 @@ import CameraController from './OrbitControls'
 import Peeks2 from './3d/Peeks2';
 import SceneCamera from './3d/SceneCamera'
 import { Effect } from './3d/Bloom'
-
 import ForwardCanvas from './ContextCanvas'
 
 function Header3D() {
@@ -21,7 +20,6 @@ function Header3D() {
         <hemisphereLight />
         <Suspense fallback={null}>
           <Logo />
-          {/* <Links /> */}
           <Sun />
           <Peeks smooth={9}/>
           <Peeks2 />

@@ -12,8 +12,8 @@ import {useLoader} from 'react-three-fiber'
       <mesh
         position={[0, 1.7, -3]}
         >
-          <planeGeometry attach="geometry" args={[3, 3.555]} />
-          <meshBasicMaterial attach="material" map={texture} transparent fog={false}/>
+          <planeGeometry attach="geometry" args={[3, 3.555, 1, 1]} />
+          <meshBasicMaterial attach="material" map={texture} transparent/>
         </mesh>
     )
   }

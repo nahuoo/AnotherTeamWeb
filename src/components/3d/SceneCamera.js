@@ -54,10 +54,7 @@ const SceneCamera = () => {
 
     useMountEffect(() => {
         backtexture.anisotropy = gl.capabilities.getMaxAnisotropy()
-        camera.position.z = 3
-        camera.position.x = 0
-        camera.position.y = 2
-        scene.fog = new THREE.FogExp2(0xFFB468, 0.008)    
+        scene.fog = new THREE.FogExp2(0xFFB468, 0.007)    
         scene.background = backtexture
     })
 

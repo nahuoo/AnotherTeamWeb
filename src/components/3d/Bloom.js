@@ -6,10 +6,10 @@ import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass'
 import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass'
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass'
 import { FXAAShader } from 'three/examples/jsm/shaders/FXAAShader'
-import { GlitchPass } from 'three/examples/jsm/postprocessing/GlitchPass.js';
+import { GlitchPass } from './Glitch';
 
 const materials = {}
-const darkMaterial = new THREE.MeshLambertMaterial({ color: 'black' })
+const darkMaterial = new THREE.MeshBasicMaterial({ color: 'black' })
 const darkenNonBloomed = (obj) =>
   obj.isMesh && !obj.userData.active && ((materials[obj.uuid] = obj.material), (obj.material = darkMaterial))
 const restoreMaterial = (obj) =>
@@ -23,7 +23,7 @@ export function Effect() {
     const comp = new EffectComposer(gl)
     comp.renderToScreen = false
     comp.addPass(renderScene)
-    comp.addPass(new UnrealBloomPass(new THREE.Vector2(size.width, size.height), 1.25, 1, 0))
+    comp.addPass(new UnrealBloomPass(new THREE.Vector2(size.width, size.height), 1.5, 1, 0))
 
     const finalComposer = new EffectComposer(gl)
     finalComposer.addPass(renderScene)
@@ -44,7 +44,7 @@ export function Effect() {
     fxaa.material.uniforms['resolution'].value.x = 1 / size.width
     fxaa.material.uniforms['resolution'].value.y = 1 / size.height
     finalComposer.addPass(fxaa)
-    const glitch = new GlitchPass(1)
+    const glitch = new GlitchPass()
     finalComposer.addPass(glitch)
 
     return [comp, finalComposer]

@@ -12,13 +12,13 @@ const Navbar = () => {
     <StyledNav> 
         <ListUL>
             <ListLi>
-            <div><MenuLinks Glitch={'Izquierda'} onClick={handleAngulo}>Izquierda</MenuLinks></div>
+            <div><MenuLinks Glitch={'Portfolio'} onClick={handleAngulo}>Portfolio</MenuLinks></div>
             </ListLi>
             <ListLi>
-            <div><MenuLinks Glitch={'Centro'} onClick={handleAngulo}>Centro</MenuLinks></div>
+            <div><MenuLinks Glitch={'Nosotros'} onClick={handleAngulo}>Nosotros</MenuLinks></div>
             </ListLi>
             <ListLi>
-            <div><MenuLinks Glitch={'Derecha'} onClick={handleAngulo}>Derecha</MenuLinks></div>
+            <div><MenuLinks Glitch={'Contacto'} onClick={handleAngulo}>Contacto</MenuLinks></div>
             </ListLi>
         </ListUL>
     </StyledNav>

@@ -40,7 +40,6 @@ const Peeks2 = () => {
     })
 
     useMountEffect(() => {
-
         let vertices = planeGeo.current.geometry.vertices    
         for( let i=0; i < vertices.length; i++){    
             if (3 < vertices[i].x || vertices[i].x < -3){ 
@@ -55,7 +54,13 @@ const Peeks2 = () => {
                     }
                 }
             }
+            else{
+                if(vertices[i].y < 4 && vertices[i].y > -6){
+                    vertices[i].z = ( Math.random() > 0.2 ) ? Math.random() * 5 : 0 
+                }
+            }
         }
+        planeGeo.current.geometry.verticesNeedUpdate = true
     })
 
     useEffect(() => {

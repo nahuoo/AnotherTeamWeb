@@ -47,7 +47,7 @@ const Peeks = (props) => {
         let smoothing = props.smooth;
         let vertices = planeGeo.current.geometry.attributes.position.array;
         for (let i = 0; i <= vertices.length; i += 3) {
-            if(vertices[i+1] > 0){  // estas atras del logo?
+            if(vertices[i+1] > 3){  // estas atras del logo?
                 if(-8 > vertices[i] || vertices[i] > 8 ){  // estas fuera del medio?
                     if (-18 > vertices[i] || vertices[i] > 18){
                         vertices[i+2] = peak * perlin.noise(vertices[i]/smoothing, vertices[i+1]/smoothing)
@@ -62,6 +62,7 @@ const Peeks = (props) => {
             }
         
         }
+        planeGeo.current.geometry.attributes.position.needsUpdate = true;
     })
     
     useEffect(() => {
