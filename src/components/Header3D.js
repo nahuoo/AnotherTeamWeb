@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import { MainWrapper } from '../styled-components/styled-3d';
+import { MainWrapper } from '../assets/styled-components/styled-3d';
 import Plane from './3d/Plane'
 import Peeks from './3d/Peeks'
 import Logo from './3d/Logo';

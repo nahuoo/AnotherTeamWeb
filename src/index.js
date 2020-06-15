@@ -2,14 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {BrowserRouter} from 'react-router-dom'
+import {AngleContextProvider} from './components/Contexts/AngleContext'
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-
-    <App />
-    </BrowserRouter>
+    <AngleContextProvider>
+      <App />
+    </AngleContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

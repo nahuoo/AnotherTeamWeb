@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 import Quantum from '../fonts/Quantum.otf'
+import Small_Pixel from '../fonts/small_pixel.ttf'
 
 
 const GlobalStyle = createGlobalStyle`
@@ -20,10 +21,16 @@ time, mark, audio, video {
 	padding: 0;
 	border: 0;
 	font-size: 100%;
-	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
   @font-face {
     font-family: 'Quantum';
     src: url('${Quantum}') format('opentype');
+  }
+  @font-face {
+    font-family: 'Smallpixel';
+    src: url('${Small_Pixel}') format('truetype');
   }
 	
     vertical-align: baseline;

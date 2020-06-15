@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
 export const MainWrapper = styled.div`
- width: 100vw;
+ width: 100%;
  height: 100vh;
- background: black;
+ position: fixed;
+ z-index: -10;
  `

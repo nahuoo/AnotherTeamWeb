@@ -1,4 +1,4 @@
-import styled, { keyframes, css } from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 /* /////////////////////////////////////////////// */
 /*                    ANIMACION                    */
@@ -51,9 +51,7 @@ export const StyledNav = styled.nav`
   @media (min-width: 1000px) {
     width: 100%;
     height: 0.3vw;
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: fixed;
     justify-content: flex-end;
   }
   `
@@ -85,6 +83,8 @@ export const Burger = styled.div`
   }
   @media (min-width: 1000px) {
     display: ${props => props.modal ? "inline" : "none"};
+    position: fixed;
+    left: 2%;
   }`
 /* /////////////////////////////////////////////// */
 /*                    MENU                         */
