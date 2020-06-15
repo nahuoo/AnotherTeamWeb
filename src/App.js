@@ -4,7 +4,6 @@ import Navbar from './components/Navbar'
 import GlobalStyle from './assets/styled-components/GlobalStyles'
 import SectionBackground from './components/SectionBackground'
 import { AngleContext } from './components/Contexts/AngleContext'
-import {Title} from './assets/styled-components/StyledSection'
 
 const App = () => {
 
@@ -16,11 +15,7 @@ const App = () => {
             <Navbar />
             <Header3D />
             {angulo === 'Portfolio' && 
-                <SectionBackground>
-                    <Title>
-                        NUESTRO PORTFOLIO
-                    </Title>
-                </SectionBackground>
+                <SectionBackground />
             }
         </>
     )
