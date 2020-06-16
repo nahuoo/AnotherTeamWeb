@@ -3,31 +3,20 @@ import styled, { keyframes } from 'styled-components'
 /* /////////////////////////////////////////////// */
 /*                    ANIMACION                    */
 /* /////////////////////////////////////////////// */
-const glitch = keyframes`
+const nav_grow = keyframes`
 0% {
-		transform: translate(0);
-    opacity: 0;
-	}
-	20% {
-		transform: translate(-5px, 5px);
-    opacity: 1;       
-	}
-	40% {
-		transform: translate(-5px, -5px);
-    opacity: 1;
-	}
-	60% {
-		transform: translate(5px, 5px);
-    opacity: 1;
-	}
-	80% {
-		transform: translate(5px, -5px);
-    opacity: 1;
-	}
-	to {
-		transform: translate(0);
-    opacity: 0;
-	}`
+        width: 0;
+        left: 100%;
+    }
+    70% {
+        width: 10px;
+        left: 0;
+    }
+    100% {
+        width: 100%;
+        left: 0;
+    }`
+  
 /* /////////////////////////////////////////////// */
 /*                    GENERAL                      */
 /* /////////////////////////////////////////////// */
@@ -50,9 +39,10 @@ export const StyledNav = styled.nav`
   }
   @media (min-width: 1000px) {
     width: 100%;
-    height: 0.3vw;
+    height: 56px;
     position: fixed;
     justify-content: flex-end;
+    padding: 0px;
   }
   `
 /* /////////////////////////////////////////////// */
@@ -108,7 +98,7 @@ export const ListUL = styled.ul`
   }
   @media (min-width: 1024px) {
     width: 50vw;
-    height: 1000%;
+    height: 100%;
     opacity: 100%;
     transform: none;
     box-shadow: none;
@@ -122,7 +112,6 @@ export const ListUL = styled.ul`
 
 export const ListLi = styled.li`
   width: 94vw;
-  text-align: center;
   padding-bottom: 2vw;
   padding-top: 0;
   margin-top: 0;
@@ -135,64 +124,56 @@ export const ListLi = styled.li`
     display: ${props => props.subMenu ? 'none' : 'initial'};
   }
   @media (min-width: 1024px) {
-    padding: 0;
+    padding: 0 24px;
     height: 100%;
     width: initial; 
     position: relative;
     display: flex;
     text-align: center;
     align-items: center;
+
+    &:hover {
+	    transition: all 400ms;
+      opacity: 1;
+      color: var(--mainLightPink);
+	    &:before, &:after {
+        content: '';
+	      display: block;
+	      position: absolute;
+	      bottom: 0;
+	      left: 0;
+	      width: 100%;
+	      animation: ${nav_grow} 400ms forwards;    
+      }
+      &:before {
+        height: 5px;
+	      transform: translateY(2px);
+	      background: var(--mainLightPink);
+	      filter: blur(6px);
+        z-index: 999;
+      }
+	    &:after {
+		    height: 1px;
+	      background: var(--mainLightPink);
+	      filter: blur(0);
+	      z-index: 998;
+      }
+      &>p {
+        color: var(--mainLightPink);
+      }
+    }
   }
   `
  export const MenuLinks = styled.p`
-  padding-top: 0;
-  margin-top: 0;
-  text-decoration: none;
   font-size: 1.6rem;
-  color: white;
+  color: var(--mainWhite);
   letter-spacing: 1pt;
-  transition: all 0.2s ease 0s;
+  transition: all 0.4s ease;
   cursor: pointer;
- 
-
-    &:before, &:after {
-	    display: block;
-	    content: '${(props) => props.Glitch}';
-	    text-transform: uppercase;
-	    position: relative;
-	    height: 100%;
-	    width: 100%;
-	    opacity: .9;
-      transition: all .9s cubic-bezier(.25, .46, .45, .94);
-
-      opacity: 0;
-      letter-spacing: 2pt;
-	    }
-    &:after {
-	    color: #FC1EDF;
-	    z-index: -1;
-      top: -1.3rem;
-	  }   
-    &:before {
-      top: 1.3rem;
-	    color: #0deefe;
-	    z-index: -2;
-	  }
-	  &:hover {
-      opacity: 1;
-      letter-spacing: 3pt;
-	    &:before {
-		    animation: ${glitch} .4s cubic-bezier(.25, .46, .45, .94) both 1;    
-	    }
-	    &:after {
-		    animation: ${glitch} .4s cubic-bezier(.25, .46, .45, .94) reverse both 1;
-	    }
-    }
   @media (min-width: 630px) {
     display: ${props => props.subMenu ? 'none' : 'initial'};
   }
   @media (min-width: 1000px) {
-    height: 100%;
     display: initial;
     text-align: center;
   }
