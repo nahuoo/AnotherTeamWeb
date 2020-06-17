@@ -33,6 +33,7 @@ export const Window = styled.div`
     animation: ${Open} 2s ease-in-out;
     animation-fill-mode: forwards;
     margin-bottom: 30px;
+    box-shadow: 0px 0px 15px 2px var(--mainPink);
     & img {
         border: 2px solid var(--mainLightPink);
     }

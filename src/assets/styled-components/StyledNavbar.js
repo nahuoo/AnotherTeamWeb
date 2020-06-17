@@ -131,6 +131,7 @@ export const ListLi = styled.li`
     display: flex;
     text-align: center;
     align-items: center;
+    cursor: pointer;
 
     &:hover {
 	    transition: all 400ms;
@@ -168,8 +169,8 @@ export const ListLi = styled.li`
   font-size: 1.6rem;
   color: var(--mainWhite);
   letter-spacing: 1pt;
-  transition: all 0.4s ease;
-  cursor: pointer;
+  transition: all 400ms ease;
+
   @media (min-width: 630px) {
     display: ${props => props.subMenu ? 'none' : 'initial'};
   }

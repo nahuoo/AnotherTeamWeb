@@ -38,46 +38,7 @@ const SectionBackground = ({children}) => {
                         </TitleBar>
                         <img src={uno} alt="Uno" />
                     </Window>
-            <Window width={'30%'} height={'40%'}>
-                        <TitleBar>
-                                Nurien.js
-                                <div>
-                                    <Buttons>_</Buttons>
-                                    <Buttons onClick={handleAngulo}>X</Buttons>
-                                </div>
-                        </TitleBar>
-                        <img src={Nurien} alt="Nurien" />
-                    </Window>
-                    <Window width={'30%'} height={'40%'}>
-                        <TitleBar>
-                                Uno.js
-                                <div>
-                                    <Buttons>_</Buttons>
-                                    <Buttons onClick={handleAngulo}>X</Buttons>
-                                </div>
-                        </TitleBar>
-                        <img src={uno} alt="Uno" />
-                    </Window>
-            <Window width={'30%'} >
-                        <TitleBar>
-                                Nurien.js
-                                <div>
-                                    <Buttons>_</Buttons>
-                                    <Buttons onClick={handleAngulo}>X</Buttons>
-                                </div>
-                        </TitleBar>
-                        <img src={Nurien} alt="Nurien" />
-                    </Window>
-                    <Window width={'30%'} height={'40%'}>
-                        <TitleBar>
-                                Uno.js
-                                <div>
-                                    <Buttons>_</Buttons>
-                                    <Buttons onClick={handleAngulo}>X</Buttons>
-                                </div>
-                        </TitleBar>
-                        <img src={uno} alt="Uno" />
-                    </Window>
+
         </MainWrapper>
     )
 }
