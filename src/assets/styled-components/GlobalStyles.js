@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 import Quantum from '../fonts/Quantum.otf'
-import Small_Pixel from '../fonts/small_pixel.ttf'
+import Bits from '../fonts/8-bit-pusab.ttf'
 
 
 const GlobalStyle = createGlobalStyle`
@@ -29,8 +29,8 @@ time, mark, audio, video {
     src: url('${Quantum}') format('opentype');
   }
   @font-face {
-    font-family: 'Smallpixel';
-    src: url('${Small_Pixel}') format('truetype');
+    font-family: '8Bit';
+    src: url('${Bits}') format('truetype');
   }
 	
     vertical-align: baseline;
