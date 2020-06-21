@@ -23,10 +23,10 @@ export const MainWrapper = styled.div`
     flex-wrap: wrap;
 `
 
-export const WrapperHologram = styled.div`
+export const HologramWrapper = styled.div`
     filter: drop-shadow(0px 0px 12px var(--mainPink));
-    width: ${props => props.width};
-    height: ${props => props.height};
+    width: 100%;
+    height: calc(width / 1,578947368);
     margin-bottom: 10%;
     animation: ${Open} 1s ease;
     transition: all 1s;
@@ -54,12 +54,24 @@ export const WrapperHologram = styled.div`
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 100%;
+        font-size: 55%;
         font-family: '8Bit';
+    }
+    @media (min-width: 630px){
+        &:before{
+            font-size: 80%;
+        }
+    }
+    @media (min-width: 1000px){
+        width: ${props => props.width};
+        height: ${props => props.height};
+        &:before{
+            font-size: 100%;
+        }
     }
     `
 
-export const Hologram = styled.div`
+export const HologramWindow = styled.div`
     width: 100%;
     height: 100%;
     clip-path: polygon(0 6%, 4% 0, 43% 0, 48% 5%, 80% 5%, 85% 0, 96% 0, 100% 6%, 100% 25%, 96% 30%, 96% 50%, 100% 55%, 100% 94%, 96% 100%, 45% 100%, 40% 95%, 23% 95%, 18% 100%, 4% 100%, 0 94%);

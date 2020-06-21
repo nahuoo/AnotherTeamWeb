@@ -50,14 +50,16 @@ export const StyledNav = styled.nav`
 /* /////////////////////////////////////////////// */
 export const Burger = styled.div`
   margin-left: 3%;
-  position: ${props => props.modal && 'absolute'};
-  top: ${props => props.modal && '3%'};
-  z-index: ${props => props.modal && '115'};
+  position: absolute;
+  top: ${props => props.modal ? '8%' : '20%'};
+  right: ${props => props.modal ? '3%' : ''};
+  z-index: 10;
   cursor: pointer;
   & div{
     width:30px;
     height:5px;
-    background-color: white;
+    background-color: var(--mainLightPink);
+    border: 1px solid var(--mainDark);
     margin:5px;
     border-radius: 20%;
     transition: all 0.3s ease-in-out;
@@ -83,21 +85,21 @@ export const ListUL = styled.ul`
   display: flex;
   position: fixed;
   flex-direction: column;
-  box-shadow: inset 14px -143px 200px -188px rgba(252,30,223,1);
   background: #000000B3;
-  top: 15vw;
+  top: 0;
   padding: 5vw 3vw;
   transition: all 0.2s ease-in;
   user-select:none;
+  border-bottom: 2px solid var(--mainLightPink);
   opacity: ${(props) => props.active ? '100%' : '0%' };
   transform: ${(props) => props.active ? 'translateY(0%) translateX(0%) scale(1)' : 'translateY(-50%) translateX(0%) scale(0)'};
 
   @media (min-width: 630px) {
-    top: 10vw;
-    padding: 0vw 3vw;
+    padding: 2vw;
+    width: 100%;
   }
   @media (min-width: 1024px) {
-    width: 50vw;
+    width: 50%;
     height: 100%;
     opacity: 100%;
     transform: none;
@@ -107,6 +109,7 @@ export const ListUL = styled.ul`
     flex-direction: row;
     justify-content: space-evenly;
     background: none;
+    border-bottom: none;
   }
   `
 
@@ -120,20 +123,7 @@ export const ListLi = styled.li`
     padding-bottom: 0;
     
   }
-  @media (min-width: 630px) {
-    display: ${props => props.subMenu ? 'none' : 'initial'};
-  }
-  @media (min-width: 1024px) {
-    padding: 0 24px;
-    height: 100%;
-    width: initial; 
-    position: relative;
-    display: flex;
-    text-align: center;
-    align-items: center;
-    cursor: pointer;
-
-    &:hover {
+  &:hover {
 	    transition: all 400ms;
       opacity: 1;
       color: var(--mainLightPink);
@@ -163,6 +153,18 @@ export const ListLi = styled.li`
         color: var(--mainLightPink);
       }
     }
+  @media (min-width: 630px) {
+    display: ${props => props.subMenu ? 'none' : 'initial'};
+    display: flex;
+    justify-content: center;
+  }
+  @media (min-width: 1024px) {
+    padding: 0 24px;
+    height: 100%;
+    width: initial; 
+    position: relative;
+    cursor: pointer;
+
   }
   `
  export const MenuLinks = styled.p`
@@ -170,13 +172,13 @@ export const ListLi = styled.li`
   color: var(--mainWhite);
   letter-spacing: 1pt;
   transition: all 400ms ease;
+  text-align: center;
 
   @media (min-width: 630px) {
     display: ${props => props.subMenu ? 'none' : 'initial'};
   }
   @media (min-width: 1000px) {
     display: initial;
-    text-align: center;
   }
   @media (min-width: 1550px) {
     font-size: 20px;

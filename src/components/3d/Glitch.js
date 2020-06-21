@@ -78,7 +78,7 @@ GlitchPass.prototype = Object.assign( Object.create( Pass.prototype ), {
 		} else if ( this.goWild === false ) {
 
 			this.uniforms[ 'byp' ].value = 1;
-			this.curF += 0.3;
+			this.curF += 0.1;
 
 		}
 
