@@ -174,11 +174,10 @@ export const ListLi = styled.li`
   transition: all 400ms ease;
   text-align: center;
 
-  @media (min-width: 630px) {
-    display: ${props => props.subMenu ? 'none' : 'initial'};
-  }
   @media (min-width: 1000px) {
     display: initial;
+    text-align: center;
+    line-height: 200%;
   }
   @media (min-width: 1550px) {
     font-size: 20px;
