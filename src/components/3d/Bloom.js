@@ -6,7 +6,7 @@ import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass'
 import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass'
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass'
 import { FXAAShader } from 'three/examples/jsm/shaders/FXAAShader'
-import { GlitchPass } from './Glitch';
+import { GlitchPass } from './Glitch'
 
 const materials = {}
 const darkMaterial = new THREE.MeshBasicMaterial({ color: 'black' })
@@ -14,7 +14,7 @@ const darkenNonBloomed = (obj) =>
   obj.isMesh && !obj.userData.active && ((materials[obj.uuid] = obj.material), (obj.material = darkMaterial))
 const restoreMaterial = (obj) =>
   materials[obj.uuid] && ((obj.material = materials[obj.uuid]), delete materials[obj.uuid])
-export function Effect() {
+export function Effect () {
   const { gl, scene, camera, size } = useThree()
 
   const [bloom, final] = useMemo(() => {
@@ -33,7 +33,7 @@ export function Effect() {
         vertexShader:
           'varying vec2 vUv; void main() { vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 ); }',
         fragmentShader:
-          'uniform sampler2D baseTexture; uniform sampler2D bloomTexture; varying vec2 vUv; vec4 getTexture( sampler2D texelToLinearTexture ) { return mapTexelToLinear( texture2D( texelToLinearTexture , vUv ) ); } void main() { gl_FragColor = ( getTexture( baseTexture ) + vec4( 1.0 ) * getTexture( bloomTexture ) ); }',
+          'uniform sampler2D baseTexture; uniform sampler2D bloomTexture; varying vec2 vUv; vec4 getTexture( sampler2D texelToLinearTexture ) { return mapTexelToLinear( texture2D( texelToLinearTexture , vUv ) ); } void main() { gl_FragColor = ( getTexture( baseTexture ) + vec4( 1.0 ) * getTexture( bloomTexture ) ); }'
       }),
       'baseTexture'
     )
@@ -41,8 +41,8 @@ export function Effect() {
     finalComposer.addPass(finalPass)
 
     const fxaa = new ShaderPass(FXAAShader)
-    fxaa.material.uniforms['resolution'].value.x = 1 / size.width
-    fxaa.material.uniforms['resolution'].value.y = 1 / size.height
+    fxaa.material.uniforms.resolution.value.x = 1 / size.width
+    fxaa.material.uniforms.resolution.value.y = 1 / size.height
     finalComposer.addPass(fxaa)
     const glitch = new GlitchPass()
     finalComposer.addPass(glitch)
@@ -56,7 +56,6 @@ export function Effect() {
   }, [bloom, final, size])
 
   useFrame(() => {
-
     scene.traverse(darkenNonBloomed)
     bloom.render()
     scene.traverse(restoreMaterial)

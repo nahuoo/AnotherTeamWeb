@@ -1,20 +1,19 @@
-import React,{useContext} from 'react'
-import { Canvas } from 'react-three-fiber';
-import {AngleContext} from '../Contexts/AngleContext'
+import React, { useContext } from 'react'
+import { Canvas } from 'react-three-fiber'
+import { AngleContext } from '../Contexts/AngleContext'
 
 // Context Bridge to canvas tree
 
 const ForwardCanvas = ({ children }) => {
+  const { angle, handleAngle } = useContext(AngleContext)
 
-    const { angulo, handleAngulo } = useContext(AngleContext)
-
-    return (
-      <Canvas concurrent>
-        <AngleContext.Provider value={{angulo, handleAngulo}}>
-          {children}
-        </AngleContext.Provider>
-      </Canvas>
-    )
-  }
+  return (
+    <Canvas concurrent>
+      <AngleContext.Provider value={{ angle, handleAngle }}>
+        {children}
+      </AngleContext.Provider>
+    </Canvas>
+  )
+}
 
 export default ForwardCanvas

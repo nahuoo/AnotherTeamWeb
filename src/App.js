@@ -5,17 +5,15 @@ import Navbar from './components/Navbar'
 import GlobalStyle from './assets/styled-components/GlobalStyles'
 import SectionBackground from './components/SectionBackground'
 
-
 const App = () => {
-
-    return (
-        <>
-            <GlobalStyle />
-            <Navbar />
-            <Header3D />
-            <SectionBackground />
-        </>
-    )
+  return (
+    <>
+      <GlobalStyle />
+      <Navbar />
+      <Header3D />
+      <SectionBackground />
+    </>
+  )
 }
 
 export default App

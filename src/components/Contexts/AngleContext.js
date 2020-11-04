@@ -4,19 +4,18 @@ const AngleContext = createContext()
 const { Provider, Consumer } = AngleContext
 
 const AngleContextProvider = (props) => {
+  const [ angle, setAngle ] = useState('Nosotros')
 
-    const [ angulo, setAngulo ] = useState('Centro')
+  const handleAngle = (e) => {
+    if (e.target.textContent === '') setAngle('Nosotros')
+    setAngle(e.target.textContent)
+  }
 
-    const handleAngulo = (e) => {
-        
-        setAngulo(e.target.textContent)
-    }
-
-    return (
-        <Provider value={{angulo, handleAngulo}}>
-            {props.children}
-        </Provider>
-    )
+  return (
+    <Provider value={{angle, handleAngle}}>
+      {props.children}
+    </Provider>
+  )
 }
 
 export {AngleContextProvider, Consumer, AngleContext }

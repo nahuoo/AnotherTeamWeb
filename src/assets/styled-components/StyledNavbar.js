@@ -3,20 +3,20 @@ import styled, { keyframes } from 'styled-components'
 /* /////////////////////////////////////////////// */
 /*                    ANIMACION                    */
 /* /////////////////////////////////////////////// */
-const nav_grow = keyframes`
-0% {
-        width: 0;
-        left: 100%;
-    }
-    70% {
-        width: 10px;
-        left: 0;
-    }
-    100% {
-        width: 100%;
-        left: 0;
-    }`
-  
+const navGrow = keyframes`
+  0% {
+    width: 0;
+    left: 100%;
+  }
+  70% {
+    width: 10px;
+    left: 0;
+  }
+  100% {
+    width: 100%;
+    left: 0;
+  }`
+
 /* /////////////////////////////////////////////// */
 /*                    GENERAL                      */
 /* /////////////////////////////////////////////// */
@@ -44,7 +44,7 @@ export const StyledNav = styled.nav`
     justify-content: flex-end;
     padding: 0px;
   }
-  `
+`
 /* /////////////////////////////////////////////// */
 /*                    BURGER                       */
 /* /////////////////////////////////////////////// */
@@ -74,10 +74,11 @@ export const Burger = styled.div`
     transform: translateY(-10px) rotate(-135deg);
   }
   @media (min-width: 1000px) {
-    display: ${props => props.modal ? "inline" : "none"};
+    display: ${props => props.modal ? 'inline' : 'none'};
     position: fixed;
     left: 2%;
-  }`
+  }
+`
 /* /////////////////////////////////////////////// */
 /*                    MENU                         */
 /* /////////////////////////////////////////////// */
@@ -91,7 +92,7 @@ export const ListUL = styled.ul`
   transition: all 0.2s ease-in;
   user-select:none;
   border-bottom: 2px solid var(--mainLightPink);
-  opacity: ${(props) => props.active ? '100%' : '0%' };
+  opacity: ${(props) => props.active ? '100%' : '0%'};
   transform: ${(props) => props.active ? 'translateY(0%) translateX(0%) scale(1)' : 'translateY(-50%) translateX(0%) scale(0)'};
 
   @media (min-width: 630px) {
@@ -111,7 +112,7 @@ export const ListUL = styled.ul`
     background: none;
     border-bottom: none;
   }
-  `
+`
 
 export const ListLi = styled.li`
   width: 94vw;
@@ -121,38 +122,37 @@ export const ListLi = styled.li`
   &:last-child{
     margin-bottom: 0;
     padding-bottom: 0;
-    
   }
   &:hover {
-	    transition: all 400ms;
-      opacity: 1;
-      color: var(--mainLightPink);
-	    &:before, &:after {
-        content: '';
-	      display: block;
-	      position: absolute;
-	      bottom: 0;
-	      left: 0;
-	      width: 100%;
-	      animation: ${nav_grow} 400ms forwards;    
-      }
-      &:before {
-        height: 5px;
-	      transform: translateY(2px);
-	      background: var(--mainLightPink);
-	      filter: blur(6px);
-        z-index: 999;
-      }
-	    &:after {
-		    height: 1px;
-	      background: var(--mainLightPink);
-	      filter: blur(0);
-	      z-index: 998;
-      }
-      &>p {
-        color: var(--mainLightPink);
-      }
+    transition: all 400ms;
+    opacity: 1;
+    color: var(--mainLightPink);
+    &:before, &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      animation: ${navGrow} 400ms forwards;    
     }
+    &:before {
+      height: 5px;
+      transform: translateY(2px);
+      background: var(--mainLightPink);
+      filter: blur(6px);
+      z-index: 999;
+    }
+    &:after {
+      height: 1px;
+      background: var(--mainLightPink);
+      filter: blur(0);
+      z-index: 998;
+    }
+    &>p {
+      color: var(--mainLightPink);
+    }
+  }
   @media (min-width: 630px) {
     display: ${props => props.subMenu ? 'none' : 'initial'};
     display: flex;
@@ -164,10 +164,9 @@ export const ListLi = styled.li`
     width: initial; 
     position: relative;
     cursor: pointer;
-
   }
-  `
- export const MenuLinks = styled.p`
+`
+export const MenuLinks = styled.p`
   font-size: 1.6rem;
   color: var(--mainWhite);
   letter-spacing: 1pt;
@@ -182,5 +181,4 @@ export const ListLi = styled.li`
   @media (min-width: 1550px) {
     font-size: 20px;
   }
-  `
-
+`

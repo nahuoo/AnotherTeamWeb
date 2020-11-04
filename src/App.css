@@ -5,4 +5,5 @@
     --mainWhite:#f6f5f7;
     --mainDark:#040404;
     --mainPurple:#6f4ced;
+    background: var(--mainDark);
 }
