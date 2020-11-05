@@ -1,5 +1,14 @@
-Another Team Oficial Web
+### Another Team Oficial Web
 
-https://master.dff521m787xyw.amplifyapp.com/
+## Project to practice some logic and maths with canvas and 3d graphics.
 
-Playing with ThreeJS
+Demo: https://master.dff521m787xyw.amplifyapp.com/
+
+_Not finished yet, project on pause._
+
+## Tools: 
+
+* [react](https://es.reactjs.org/)
+* [styled-components](https://www.npmjs.com/package/styled-components)
+* [three.js](https://www.npmjs.com/package/three)
+* [react-three-fiber](https://www.npmjs.com/package/react-three-fiber)

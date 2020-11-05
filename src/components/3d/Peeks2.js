@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import * as THREE from 'three'
 import { useFrame, useLoader } from 'react-three-fiber'
-import Hex from '../../img/SynthSquare.png'
+import Hex from '../../assets/img/SynthSquare.png'
 
 const Peeks2 = () => {
   const [toggle, setToggle] = useState(true)

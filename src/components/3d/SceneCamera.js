@@ -1,7 +1,7 @@
 import { useEffect, useContext } from 'react'
 import * as THREE from 'three'
 import { useFrame, useLoader, useThree } from 'react-three-fiber'
-import Back from '../../img/wallstar.jpg'
+import Back from '../../assets/img/wallstar.jpg'
 import { AngleContext } from '../Contexts/AngleContext'
 
 const SceneCamera = () => {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import * as THREE from 'three'
 import { useFrame, useLoader } from 'react-three-fiber'
-import SynthSquare from '../../img/SynthSquare.png'
+import SynthSquare from '../../assets/img/SynthSquare.png'
 
 const Plane = () => {
   const ref = useRef()

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useLoader } from 'react-three-fiber'
 import { TextureLoader } from 'three'
-import Solito from '../../img/Sun.png'
+import Solito from '../../assets/img/Sun.png'
 
 const Sun = () => {
   const [sol] = useLoader(TextureLoader, [Solito])
